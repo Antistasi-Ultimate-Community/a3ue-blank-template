@@ -3,6 +3,14 @@ author = "Antistasi Ultimate Dev Team"
 prefix = "a3uebet"
 mainprefix = "z"
 
+[files]
+include = [
+    "a3uebet.paa",
+    "LICENSE",
+    "README.md",
+    "mod.cpp"
+]
+
 [preprocessor]
 runtime_macros = true
 
