@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="A3UEBET">
+    <Package name="Example_Utility_Items">
+        <Key ID="STR_A3UEBET_Example_Utility_Items_SupplyBoxLarge_DisplayName">
+            <English>[A3UEBET] Supply Box (Large)</English>
+        </Key>
+        <Key ID="STR_A3UEBET_Example_Utility_Items_SupplyBoxMedium_DisplayName">
+            <English>[A3UEBET] Supply Box (Medium)</English>
+        </Key>
+        <Key ID="STR_A3UEBET_Example_Utility_Items_SupplyBoxSmall_DisplayName">
+            <English>[A3UEBET] Supply Box (Small)</English>
+        </Key>
+    </Package>
+</Project>
