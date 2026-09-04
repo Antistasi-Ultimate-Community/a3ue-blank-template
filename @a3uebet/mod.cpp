@@ -1,0 +1,14 @@
+name = "[A3UE] Blank Extender Template";
+picture = "a3uebet.paa";
+actionName = "Website";
+action = "https://github.com/Antistasi-Ultimate-Community/a3ue-blank-template";
+description = "[A3UE] Blank Extender Template v0.0.0";
+logo = "a3uebet.paa";
+logoOver = "a3uebet.paa";
+tooltip = "[A3UE] Blank Extender Template";
+tooltipOwned = "[A3UE] Blank Extender Template Owned";
+overview = "It's a template for creating blank extenders for Antistasi Ultimate.";
+author = "goreSplatter";
+overviewPicture = "a3uebet.paa";
+overviewText = "[A3UE] Blank Extender Template overviewText";
+overviewFootnote = "<br /><br /><t color='#999999'>This content is under Arma Public License Share Alike (APL-SA) License.<br />Press <t /><t color='#19d3ff'>Left Shift + P<t /><t color='#999999'> to open the store page for more information.<t />";
