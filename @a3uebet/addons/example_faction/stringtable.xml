@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="A3UEBET">
+    <Package name="Example_Faction">
+        <Key ID="STR_A3UEBET_Example_Faction_Description">
+            <English>This is an example faction for A3UEBET.</English>
+        </Key>
+        <Key ID="STR_A3UEBET_Example_Faction_Name">
+            <English>A3UEBET Rebels</English>
+        </Key>
+        <Key ID="STR_A3UEBET_Example_Faction_NameShort">
+            <English>A3UEBET</English>
+        </Key>
+    </Package>
+</Project>
