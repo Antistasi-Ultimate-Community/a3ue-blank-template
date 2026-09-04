@@ -18,3 +18,6 @@ workshop = [
     "1779063631", # ZEN
     "3499977893", # Advanced Developer Tools
 ]
+
+[version]
+git_hash = 0
