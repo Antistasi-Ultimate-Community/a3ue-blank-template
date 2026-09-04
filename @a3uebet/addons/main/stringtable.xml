@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="A3UEBET">
+    <Package name="Main">
+        <Key ID="STR_A3UEBET_Main_Extender_Author">
+            <English>Antistasi Ultimate Dev Team</English>
+            <German>Antistasi Ultimate Dev Team</German>
+        </Key>
+        <Key ID="STR_A3UEBET_Main_Extender_AuthorUrl">
+            <English>https://github.com/Antistasi-Ultimate-Community/a3ue-blank-template</English>
+            <German>https://github.com/Antistasi-Ultimate-Community/a3ue-blank-template</German>
+        </Key>
+    </Package>
+</Project>

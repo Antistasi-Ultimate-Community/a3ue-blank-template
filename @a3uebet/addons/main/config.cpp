@@ -7,9 +7,9 @@ class CfgPatches {
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"A3A_ultimate"};
-        author = LSTRING(Extender_Author);
+        author = CSTRING(Extender_Author);
         authors[] = {};
-        authorUrl = LSTRING(Extender_AuthorUrl);
+        authorUrl = CSTRING(Extender_AuthorUrl);
         VERSION_CONFIG;
     };
 };
