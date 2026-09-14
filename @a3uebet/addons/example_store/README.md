@@ -61,6 +61,6 @@ backpack
 4. In the in-game debug console, see what `backpackItems player` evaluates to.
 5. Those are your class names. Copy them into the clipboard.
 
-![In-game console view](..\..\..\images\tutorial\example_store\console.png)
+![In-game console view](images\console.png)
 
 [workshop-url-ctab]: https://steamcommunity.com/sharedfiles/filedetails/?id=1643720957
