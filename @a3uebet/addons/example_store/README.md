@@ -78,7 +78,7 @@ File | Description
 `CfgHalsStore.hpp` | You'll do the necessary store configuration here.
 `config.cpp` | The addons "registry", if you will. Defines what the addon is called and what it depends on to correctly work.
 `script_component.hpp` | An include file used basically everywhere in the mod. In this particular case, its use is limited to `config.cpp`. Defines macros used exclusively in this addon and includes other .hpp files.
-`string_table.xml` | Where human readable text goes. Along with its translation into other languages.
+`stringtable.xml` | Where human readable text goes. Along with its translation into other languages.
 
 #### Setting up `$PBOPREFIX$`
 
@@ -297,6 +297,90 @@ class CfgHALsAddons {
         };
     };
 };
+```
+
+#### Setting up `config.cpp`
+
+You may just use the one from the example sources. There's not much to pay
+special attention to.
+
+If your store's items depend on other mods, _this_ is the place to tell Arma
+(not Antistasi, that's done above) about those dependencies.
+
+```sqf
+#include "script_component.hpp"
+
+class CfgPatches {
+    class ADDON {
+        name = COMPONENT_NAME;
+        units[] = {};
+        weapons[] = {};
+        requiredVersion = REQUIRED_VERSION;
+        requiredAddons[] = {QUOTE(MAIN_ADDON), "A3A_hals", "ace_main"};
+        skipWhenMissingDependencies = 1;
+        author = ECSTRING(main,Extender_Author);
+        authors[] = {};
+        authorUrl = ECSTRING(main,Extender_AuthorUrl);
+        VERSION_CONFIG;
+    };
+};
+
+#include "CfgHalsStore.hpp"
+```
+
+If _all_ your extender does is add those three ropes to the store, it might be
+a good idea to move the dependency on `ace_main` to the _extender's_ `config.cpp`
+(i.e. the one in the `main` directory).
+
+What we're seeing above is a _soft dependency_ on ACE. If someone has your
+extender loaded, but is a filthy casual that plays with out ACE, your extender's
+addon will just not be loaded. No need to add ropes to the store, if the
+underlying mod is missing. That's what `skipWhenMissingDependencies` does.
+
+If, however, your extender relies on other ACE related stuff without which it
+just won't run/work, remove the `skipWhenMissingDependencies` lines and turn
+that dependency into a _hard dependency._
+
+#### Setting up `script_component.hpp`
+
+Adjust this example's source code component include file to match the component
+directory. Also, the include paths to your extender's main addon.
+
+```sqf
+#define COMPONENT <my-addon-name>
+#define COMPONENT_BEAUTIFIED Example Store
+#include "\z\<my-extender-name>\addons\main\script_mod.hpp"
+
+/* ... */
+
+#include "\z\<my-extender-name>\addons\main\script_macros.hpp"
+```
+
+#### Setting up `stringtable.xml`
+
+This XML file is read by Arma and used to realize localization. It's not a good
+idea to hard-code a language into your extender, instead it's practice to use
+text placeholders that Arma substitutes into language-specific strings during
+runtime.
+
+If you're an American and are fluent in but one language, it's still a good idea
+to use a string table and ask members of the A3U community to help with
+translations.
+
+This example relies on only one string. Its XML file should look like this:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="<my-extender-name>">
+    <Package name="<my-addon-name>">
+        <!-- Used with the CSTRING macro in CfgHalsStore.hpp -->
+        <Key ID="STR_<my-extender-name>_<my-addon-name>_StoreRopesCategory_DisplayName">
+            <Original>My Rope Store - Rope category</Original>
+            <German>Mein Seilladen - Kategorie Seile</German>
+            <French>Mon magasin de cordes - catégorie de cordes</French>
+        </Key>
+    </Package>
+</Project>
 ```
 
 [workshop-url-ctab]: https://steamcommunity.com/sharedfiles/filedetails/?id=1643720957
