@@ -13,9 +13,9 @@
 ["flagTexture", QPATHTO_T()] call _fnc_saveToTemplate; // Texture path applied to the physical flag. Can point to external files.
 ["flagMarkerType", ""] call _fnc_saveToTemplate; // Marker from CfgMarkers.
 
-//////////////////////////
+///////////////////////////
 //       Vehicles       //
-//////////////////////////
+/////////////////////////
 
 /* 
     Reference script_template_common.hpp for these. Change the classes here if you want to use different classes.
@@ -878,7 +878,6 @@ private _policeTemplate = {
     ["helmets"] call _fnc_setHelmet;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
-
 
     ["riflesCarbine"] call _fnc_setPrimary;
     ["primary", 3] call _fnc_addMagazines;
