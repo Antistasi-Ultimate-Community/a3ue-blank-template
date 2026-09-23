@@ -1,4 +1,4 @@
-#include "..\script_component.hpp"
+#include "..\script_template_common.hpp"
 #pragma hemtt ignore_variables ["_fnc_createLoadoutData","_fnc_generateAndSaveUnitsToTemplate","_fnc_saveToTemplate"]
 
 /* This example faction is basically a toned down variant of the vanilla FIA
@@ -12,11 +12,11 @@ private _hasEF = "ef" in A3A_enabledDLC;
 //   Rebel Information   //
 ///////////////////////////
 
-["name", LLSTRING(NameShort)] call _fnc_saveToTemplate;
+["name", LLSTRING(Reb_NameShort)] call _fnc_saveToTemplate;
 
-["flag", "Flag_FIA_F"] call _fnc_saveToTemplate;
-["flagTexture", "a3\data_f\flags\flag_fia_co.paa"] call _fnc_saveToTemplate;
-["flagMarkerType", "flag_FIA"] call _fnc_saveToTemplate;
+["flag", "Flag_FIA_F"] call _fnc_saveToTemplate; // Physical flag object classname.
+["flagTexture", "a3\data_f\flags\flag_fia_co.paa"] call _fnc_saveToTemplate; // Texture path applied to physical flag.
+["flagMarkerType", "flag_FIA"] call _fnc_saveToTemplate; // Marker from CfgMarkers.
 
 private _vehiclesBasic = ["I_G_Quadbike_01_F"];
 private _vehiclesLightUnarmed = ["I_G_Offroad_01_F"];

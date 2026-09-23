@@ -1,14 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="A3UEBET">
-    <Package name="Example_Faction">
-        <Key ID="STR_A3UEBET_Example_Faction_Description">
-            <English>This is an example faction for A3UEBET.</English>
+    <Package name="Example_Faction_Reb">
+        <Key ID="STR_A3UEBET_Example_Faction_Reb_Description">
+            <English>This is an example Reb faction for A3UEBET.</English>
         </Key>
-        <Key ID="STR_A3UEBET_Example_Faction_Name">
+        <Key ID="STR_A3UEBET_Example_Faction_Reb_Name">
             <English>A3UEBET Rebels</English>
         </Key>
-        <Key ID="STR_A3UEBET_Example_Faction_NameShort">
+        <Key ID="STR_A3UEBET_Example_Faction_Reb_NameShort">
             <English>A3UEBET</English>
+        </Key>
+    </Package>
+    <Package name="Example_Faction_Occ">
+        <Key ID="STR_A3UEBET_Example_Faction_Occ_Description">
+            <English>This is an example Occ faction for A3UEBET.</English>
+        </Key>
+        <Key ID="STR_A3UEBET_Example_Faction_Occ_Name">
+            <English>A3UEBET Occupants</English>
+        </Key>
+        <Key ID="STR_A3UEBET_Example_Faction_Occ_NameShort">
+            <English>A3UEBET</English>
+        </Key>
+        <Key ID="STR_A3UEBET_Example_Faction_Occ_SpawnMarkerName">
+            <English>A3UEBET Corridor</English>
+        </Key>
+    </Package>
+    <Package name="Example_Faction_Inv">
+        <Key ID="STR_A3UEBET_Example_Faction_Inv_Description">
+            <English>This is an example Inv faction for A3UEBET.</English>
+        </Key>
+        <Key ID="STR_A3UEBET_Example_Faction_Inv_Name">
+            <English>A3UEBET Invaders</English>
+        </Key>
+        <Key ID="STR_A3UEBET_Example_Faction_Inv_NameShort">
+            <English>A3UEBET</English>
+        </Key>
+        <Key ID="STR_A3UEBET_Example_Faction_Inv_SpawnMarkerName">
+            <English>A3UEBET Corridor</English>
         </Key>
     </Package>
 </Project>
