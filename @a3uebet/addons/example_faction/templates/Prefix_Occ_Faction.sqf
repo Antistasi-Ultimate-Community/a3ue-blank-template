@@ -10,7 +10,7 @@
 ["spawnMarkerName", LLSTRING(Occ_SpawnMarkerName)] call _fnc_saveToTemplate; // Name of the spawn corridor.
 
 ["flag", DEFAULT_FLAG] call _fnc_saveToTemplate; // Physical flag object classname. Rarely needs to change.
-["flagTexture", QPATHTO_T()] call _fnc_saveToTemplate; // Texture path applied to the physical flag. Can point to external files.
+["flagTexture", QPATHTO_T(images\flag_x_co.paa)] call _fnc_saveToTemplate; // Texture path applied to the physical flag. Can point to external files.
 ["flagMarkerType", ""] call _fnc_saveToTemplate; // Marker from CfgMarkers.
 
 ///////////////////////////
@@ -202,15 +202,15 @@ _loadoutData set ["rifles", []];
 _loadoutData set ["riflesSL", []]; // Rifle given to Squad Leaders
 _loadoutData set ["riflesAuto", []]; // An LMG or machine gun
 _loadoutData set ["riflesMarksman", []]; // Accurate long barrel rifle
-_loadoutData set ["riflesSniper", []]; // Designated sniper rifle
 _loadoutData set ["riflesCarbine", []]; // A rifle with a shorter barrel length
+_loadoutData set ["riflesSniper", []]; // Designated sniper rifle
+
 _loadoutData set ["launchersGrenade", []]; // A (usually) rifle mounted grenade launcher
 _loadoutData set ["launchersGrenadeDesignated", []]; // A standalone grenade launcher
-
-_loadoutData set ["launchersLightAT", []]; // Light launcher that fires a non-missile projectile
-_loadoutData set ["launchersAT", []]; // Launcher that fires a non-missile projectile
-_loadoutData set ["launchersMissileAT", []]; // Launcher that fires a missile projectile
 _loadoutData set ["launchersAA", []]; // Launcher that fires an AA guided missile projectile
+_loadoutData set ["launchersAT", []]; // Launcher that fires a non-missile projectile
+_loadoutData set ["launchersLightAT", []]; // Light launcher that fires a non-missile projectile
+_loadoutData set ["launchersMissileAT", []]; // Launcher that fires a missile projectile
 _loadoutData set ["sidearms", []];
 
 _loadoutData set ["minesAT", []]; // Anti-tank
@@ -316,25 +316,25 @@ _loadoutData set ["items_unarmed_extras", _coreItems];
 //    Misc Loadouts     //
 //////////////////////////
 
-private _crewLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData; 
+private _crewLoadoutData = _loadoutData call _fnc_copyLoadoutData; 
 _crewLoadoutData set ["uniforms", []];
 _crewLoadoutData set ["vests", []];
 _crewLoadoutData set ["helmets", []];
-_crewLoadoutData set ["rifles", []]
+_crewLoadoutData set ["rifles", []];
 _crewLoadoutData set ["sidearms", []];
 
-private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
+private _pilotLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _pilotLoadoutData set ["uniforms", []];
 _pilotLoadoutData set ["vests", []];
 _pilotLoadoutData set ["helmets", []];
-_pilotLoadoutData set ["rifles", []]
+_pilotLoadoutData set ["rifles", []];
 _pilotLoadoutData set ["sidearms", []];
 
 private _policeLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _policeLoadoutData set ["uniforms", []];
 _policeLoadoutData set ["vests", []];
 _policeLoadoutData set ["helmets", []];
-_policeLoadoutData set ["rifles", []]
+_policeLoadoutData set ["rifles", []];
 _policeLoadoutData set ["sidearms", []];
 
 ////////////////////////////////

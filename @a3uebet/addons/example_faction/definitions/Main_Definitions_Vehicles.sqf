@@ -42,7 +42,7 @@
 ["vehiclesRadar", _vehiclesRadar] call _fnc_saveToTemplate;
 ["vehiclesSam", _vehiclesSam] call _fnc_saveToTemplate;
 ["staticAA", _staticAA] call _fnc_saveToTemplate;
-["staticMG", _staticMG] call _fnc_saveToTemplate;
+["staticMGs", _staticMG] call _fnc_saveToTemplate; // Note the s difference here
 ["staticAT", _staticAT] call _fnc_saveToTemplate;
 ["staticMortars", _staticMortars] call _fnc_saveToTemplate;
 ["staticHowitzers", _staticHowitzers] call _fnc_saveToTemplate;
