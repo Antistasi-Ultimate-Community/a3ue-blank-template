@@ -1,4 +1,4 @@
-#pragma hemtt ignore_variables ["_vehiclesLightUnarmed","_vehiclesLightArmed","_vehiclesTrucks","_vehiclesAPCs","_vehiclesTanks","_vehiclesHelis","_vehiclesUAVs","_staticLowWeapons","_staticAT","_staticMortars","_staticMortarMagHE","_staticHowitzers","_staticAA","_staticMGs","_vehicleRadar","_vehicleSAM","_minefieldAT","_minefieldAPERS","_handGrenades","_fnc_saveToTemplate"]
+#pragma hemtt ignore_variables ["_vehiclesLightUnarmed","_vehiclesLightArmed","_vehiclesTrucks","_vehiclesAPCs","_vehiclesTanks","_vehiclesHelis","_vehiclesUAVs","_staticLowWeapons","_staticAT","_staticMortars","_staticMortarMagHE","_staticHowitzers","_staticAA","_staticMGs","_minefieldAT","_minefieldAPERS","_handGrenades","_fnc_saveToTemplate"]
 
 // ! Skip adding to hashmap if the variable is not defined
 #define SKIP_NIL(VAR_NAME,VAR_DATA) if (!isNil {VAR_DATA}) then { [VAR_NAME, VAR_DATA] call _fnc_saveToTemplate };

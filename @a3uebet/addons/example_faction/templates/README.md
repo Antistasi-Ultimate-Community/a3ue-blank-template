@@ -63,7 +63,7 @@ from an empty pool unless it has a fallback.
 | --- | --- | --- | --- |
 | Faction information | Name; usually flag, flag texture, and marker type | Spawn marker name and other metadata | See `Example_Occ.sqf` and `Example_Reb.sqf`. |
 | Mod/DLC checks | Only when optional content is used | All checks | Use `A3A_enabledDLC`, `isClass (configFile >> "CfgPatches" >> ...)`, or loaded-mod information. |
-| Vehicles and static weapons | Pools used by the chosen faction type | Any unsupported category | Every saved key must use the key expected by Antistasi code. |
+| Vehicles and static weapons | Pools used by the chosen faction type (see [Required Vehicles](#required-vehicles)) | See [Optional Vehicles](#optional-vehicles) | Every saved key must use the key expected by Antistasi code. |
 | Identities | Faces/voices when units need faction-specific identity | Insignia, tier-specific faces/voices, generic names | Generic names come from `configFile >> CfgWorlds >> GenericNames`. |
 | Loadout data | A hashmap created with `_fnc_createLoadoutData` when units are generated | Tier, crew, pilot, or special-purpose copies | Child hashmaps can inherit defaults with `_fnc_copyLoadoutData`. |
 | Unit templates | At least the roles passed to the generator | Extra specialist roles | Keep pool keys and unit-template keys synchronized. |
@@ -71,9 +71,9 @@ from an empty pool unless it has a fallback.
 
 ### Faction-specific minimums
 
-| Faction | Required sections | Commonly optional or reduced |
+| Faction | Required sections | Optional or Not Used |
 | --- | --- | --- |
-| Occupant / Invader | Side information, enemy vehicle/static pools, identities, default loadouts, war-level loadouts, unit templates, generator call | Police, elite, special-forces, crew/pilot overrides, advanced vehicle files, uncommon vehicle categories |
+| Occupant / Invader | Side information, enemy vehicle/static pools, identities, default loadouts, war-level loadouts (militia/military/elite/sf/police), unit templates, generator call | crew/pilot overrides (depending on unit templates), advanced vehicle files, uncommon vehicle categories |
 | Rebel | Rebel identity, rebel-store vehicles/static weapons, starting gear, identities, Petros data, one loadout hashmap, unit templates, generator call | Most enemy vehicle categories, tier loadouts, advanced vehicle files, specialized starting items |
 | Rival | Rival name/leader, rival vehicles/static weapons, identities, loadouts, unit templates, generator call | War-level tier loadouts, police data, faction-store data not used by rivals |
 | Civilian | Civilian vehicle pools, civilian uniforms/identities, civilian loadout hashmap, `Man`, `Worker`, `Press`, and `VIP` unit templates, generator call | Weapons beyond VIP sidearms, military equipment, enemy vehicles and tier loadouts |
@@ -109,6 +109,28 @@ Static emplacements commonly use the first vehicle in their array. This matters
 especially for rebel static MG, AT, AA, and mortar arrays; put the preferred
 class first. Ensure mortar and howitzer magazine class names are compatible
 with the selected weapon.
+
+### Required Vehicles
+
+**Note:** Required in this context doesn't mean that the game won't load without these. It means code throughout the game (missions, encounters, convoys, patrols, garrisons, attacks / counterattacks, etc) will at least attempt to spawn these on a regular basis. Without these bare minimum classes, the game will either be very broken, very empty, or both.
+
+| Faction | Vehicles |
+| --- | --- |
+| Occupant / Invader | `_vehiclesBasic`, `_vehiclesLightUnarmed`, `_vehiclesLightArmed`, `_vehiclesTrucks`, `_vehiclesCargoTrucks`, `_vehiclesAmmoTrucks`, `_vehiclesRepairTrucks`, `_vehiclesFuelTrucks`, `_vehiclesMedical`, `_vehiclesAPCs`, `_vehiclesTanks`, `_vehiclesArtillery`, `_magazinesArtillery`, `_vehiclesAA`, `_vehiclesHelisTransport`, `_vehiclesHelisAttack`, `_vehiclesPlanesCAS`, `_vehiclesMilitiaCars`, `_vehiclesMilitiaLightArmed`, `_vehiclesMilitiaTrucks`, `_vehiclesMilitiaAPCs`, `_vehiclesPolice`, `_staticMortars`, `_mortarMagazineHE`, `_mortarMagazineSmoke`, `_mortarMagazineFlare`, `_staticAA`, `_staticAT`, `_staticMGs`, `_minefieldAT`, `_minefieldAPERS` |
+| Rebel | `_vehiclesBasic`, `_vehiclesTruck`, `_vehiclesLightUnarmed`, `_vehiclesLightArmed`, `_vehiclesAT`, `_vehiclesAA`, `_vehiclesBoat`, `_vehiclesPlane`, `_vehiclesMedical`, `_staticMG`, `_staticAT`, `_staticAA`, `_staticMortar`, `_staticMortarMagHE`, `_staticMortarMagSmoke`, `_staticMortarMagFlare`, `_minesAT`, `_minesAPERS`, `_breachingExplosivesAPC`, `_breachingExplosivesTank`, at least one of `_vehiclesCivCar` OR `_vehiclesCivTruck` (for undercover travel) |
+| Rival | `_vehiclesLightUnarmed`, `_vehiclesLightArmed`, `_vehiclesTrucks`, `_vehiclesAPCs`, `_staticLowWeapons`, `_staticAT`, `_staticMortars`, `_staticMortarMagHE`, `_staticAA`, `_staticMGs`, `_minefieldAT`, `_minefieldAPERS` |
+| Civilian | `_vehiclesCivCar`, `_vehiclesCivIndustrial`, `_vehiclesCivRepair`, `_vehiclesCivMedical`, `_vehiclesCivFuel`, `_vehiclesCivBoat` |
+
+### Optional Vehicles
+
+**Note:** These vehicles provide additional functionality to the game when provided, but are not required for a faction.
+
+| Faction | Vehicles |
+| --- | --- |
+| Occupant / Invader | `_vehiclesLightAPCs`, `_vehiclesIFVs`, `_vehiclesLightTanks`, `_vehiclesHelisLight`, `_vehiclesHelisLightAttack`, `_vehiclesPlanesTransport`, `_vehiclesPlanesAA`, `_vehiclesPlanesLargeCAS`, `_vehiclesPlanesLargeAA`, `_vehiclesPlanesGunship`, `_uavsPortable`, `_uavsAttack`, `_vehiclesTransportBoats`, `_vehiclesGunboats`, `_vehiclesSDV`, `_vehiclesMilitiaAPCs`, `_vehiclesAirPatrol`, `_vehiclesAirborne`, `_vehiclesAmphibious`, `_vehiclesDropPod`, `_staticHowitzers`, `_howitzerMagazineHE` (required if providing `_staticHowitzers`), `_vehicleRadar`, `_vehicleSAM` |
+| Rebel | `_vehiclesCivSupply`, `_vehiclesCivHeli`, `_vehiclesCivBoat`, `_vehiclesCivPlane` (for undercover travel) |
+| Rival | `_vehiclesTanks`, `_vehiclesHelis`, `_vehiclesUAVs`, `_staticHowitzers`, `_handGrenades` |
+| Civilian | `_vehiclesCivPlanes`, `_vehiclesCivHeli` |
 
 ## Identities and names
 
