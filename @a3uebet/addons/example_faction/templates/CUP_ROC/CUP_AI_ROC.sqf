@@ -223,7 +223,7 @@ _loadoutData set ["items_miscEssentials", [] call A3A_fnc_itemset_miscEssentials
 // Unit-specific items
 private _slItems = ["Laserbatteries", "Laserbatteries", "Laserbatteries"];
 private _eeItems = ["ToolKit", "MineDetector"];
-// TODO private _mmItems = ["SpecialSniperEquipment"];
+private _mmItems = []; // TODO private _mmItems = ["SpecialSniperEquipment"];
 
 if (A3A_hasACE) then { // note how these items are added to the unit-specific extras arrays, only if ACE mod is loaded
 	_slItems append ["ACE_microDAGR", "ACE_DAGR"];
@@ -411,7 +411,7 @@ _militaryLoadoutData set ["grenadeLaunchers", [
 _militaryLoadoutData set ["machineGuns", [
     ["CUP_lmg_M240_B", "", "", ["CUP_optic_ACOG_TA648_308_black", 2, "CUP_optic_ElcanM145", 2, "CUP_optic_CWS", 1, "", 5], ["CUP_100Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M"], [], ""], 1,
     ["CUP_lmg_m249_pip1", "", "", _opticsMid, ["CUP_200Rnd_TE4_Red_Tracer_556x45_M249"], [], ""], 2,
-    ["CUP_mg_m249_pip2", "", "", _opticsMid, ["CUP_200Rnd_TE4_Red_Tracer_556x45_M249"], [], ""], 1
+    ["CUP_lmg_m249_pip2", "", "", _opticsMid, ["CUP_200Rnd_TE4_Red_Tracer_556x45_M249"], [], ""], 1
 ]];
 _militaryLoadoutData set ["marksmanRifles", [
     ["CUP_srifle_Mk18_blk", "", "", "CUP_optic_LeupoldMk4", ["CUP_20Rnd_762x51_DMR", "CUP_20Rnd_762x51_DMR", "CUP_20Rnd_TE1_Red_Tracer_762x51_DMR"], [], "CUP_bipod_Harris_1A2_L_BLK"], 2,
@@ -504,7 +504,7 @@ _eliteLoadoutData set ["machineGuns", [
     ["CUP_lmg_Mk48", "", _accRifle, _opticsMG, ["CUP_100Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M"], [], ""], 1,
     ["CUP_lmg_Mk48_nohg", "", _accRifle, _opticsMG, ["CUP_100Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M"], [], ""], 1,
     ["CUP_lmg_m249_pip3", "", _accRifle, _opticsMid, ["CUP_200Rnd_TE4_Red_Tracer_556x45_M249"], [], ""], 3,
-    ["CUP_mg_m249_pip4", "", _accRifle, _opticsMid, ["CUP_200Rnd_TE4_Red_Tracer_556x45_M249"], [], ""], 3
+    ["CUP_lmg_m249_pip4", "", _accRifle, _opticsMid, ["CUP_200Rnd_TE4_Red_Tracer_556x45_M249"], [], ""], 3
 ]];
 _eliteLoadoutData set ["marksmanRifles", [
     ["CUP_srifle_Mk18_blk", "", "", "CUP_optic_LeupoldMk4", ["CUP_20Rnd_762x51_DMR", "CUP_20Rnd_762x51_DMR", "CUP_20Rnd_TE1_Red_Tracer_762x51_DMR"], [], "CUP_bipod_Harris_1A2_L_BLK"], 1,
@@ -534,7 +534,7 @@ _sfLoadoutData set ["uniforms", [
 ]];
 _sfLoadoutData set ["medVests", ["CUP_V_JPC_medical_mc", "CUP_V_JPC_medicalbelt_mc"]];
 _sfLoadoutData set ["slVests", ["CUP_V_JPC_communications_mc", "CUP_V_JPC_communicationsbelt_mc"]];
-_sfLoadoutData set ["sniVests", ["CUP_V_JPC_light_mc", "CUP_V_JPC_lightbelt_mc"]];
+_sfLoadoutData set ["sniVests", ["CUP_V_B_JPC_MCam_Light", "CUP_V_JPC_lightbelt_mc"]];
 _sfLoadoutData set ["glVests", ["CUP_V_JPC_weapons_mc", "CUP_V_JPC_weaponsbelt_mc"]];
 _sfLoadoutData set ["engVests", ["CUP_V_JPC_tl_mc", "CUP_V_JPC_tlbelt_mc"]];
 _sfLoadoutData set ["vests", ["CUP_V_JPC_Fast_mc", "CUP_V_JPC_Fastbelt_mc"]];
@@ -603,7 +603,7 @@ _sfLoadoutData set ["machineGuns", [
     ["CUP_lmg_Mk48", "muzzle_snds_H_MG_blk_F", _accRifle, _opticsMG, ["CUP_100Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M"], [], ""], 1,
     ["CUP_lmg_Mk48_nohg", "muzzle_snds_H_MG_blk_F", _accRifle, _opticsMG, ["CUP_100Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M"], [], ""], 1,
     ["CUP_lmg_m249_pip3", "CUP_muzzle_snds_M16", _accRifle, _opticsMid, ["CUP_200Rnd_TE4_Red_Tracer_556x45_M249"], [], ""], 3,
-    ["CUP_mg_m249_pip4", "CUP_muzzle_snds_M16", _accRifle, _opticsMid, ["CUP_200Rnd_TE4_Red_Tracer_556x45_M249"], [], ""], 3
+    ["CUP_lmg_m249_pip4", "CUP_muzzle_snds_M16", _accRifle, _opticsMid, ["CUP_200Rnd_TE4_Red_Tracer_556x45_M249"], [], ""], 3
 ]];
 _sfLoadoutData set ["marksmanRifles", [
     ["CUP_srifle_RSASS_Black", "", "", ["CUP_optic_LeupoldMk4", 3, "CUP_optic_Leupold_VX3", 1], ["CUP_20Rnd_762x51_L129_M"], [], "CUP_bipod_VLTOR_Modpod_black"], 2,

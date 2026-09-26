@@ -72,6 +72,7 @@ class A3A {
             file = "CUP_AI_ROC"; // the template file
             side = "Occ"; // set the side for the CUP Republic of China Army faction
             name = CSTRING(CUP_ROC); // the display name for the CUP Republic of China Army faction
+            description = CSTRING(CUP_ROC_Description); // the description for the CUP Republic of China Army faction
         };
     };
 };
