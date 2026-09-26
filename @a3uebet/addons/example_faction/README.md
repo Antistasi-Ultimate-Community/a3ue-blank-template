@@ -19,6 +19,10 @@ than a normal faction template.
 	and data contract, while
 	[`templates/Examples/README.md`](templates/Examples/README.md) compares the
 	faction types and points to advanced examples.
+5. For a complete, currently-registered faction that also adds new game
+	content (retextured uniforms/vests and a custom map marker) instead of only
+	reusing existing classes, see [`templates/CUP_ROC`](templates/CUP_ROC) and
+	its [README](templates/CUP_ROC/README.md).
 
 ## Addon files
 
@@ -27,6 +31,7 @@ than a normal faction template.
 | `config.cpp` | Declares the addon patch and includes `CfgTemplates.hpp`. |
 | `CfgTemplates.hpp` | Registers template classes under `A3A > Templates`; defines inheritance, side, path, climate, logo, and localized metadata. |
 | `templates/*.sqf` | Supplies the faction's Antistasi Ultimate template hashmap, vehicle pools, identities, equipment, loadouts, and unit generators. |
+| `templates/CUP_ROC/` | A complete occupant faction that both configures a template and adds new content (`config.cpp`, `CfgMarkers.hpp`, `CfgVehicles.hpp`, `CfgWeapons.hpp`, `data/`) for use in it. |
 | `stringtable.xml` | Localizes names and descriptions referenced by `CSTRING`, `LLSTRING`, and related macros. |
 | `script_component.hpp` and `$PBOPREFIX$` | Provide the addon namespace, macros, and packed-PBO path. |
 
@@ -50,6 +55,7 @@ to keys in the addon package.
 
 - [Templates guide](templates/README.md)
 - [Template examples guide](templates/Examples/README.md)
+- [CUP_ROC complete example guide](templates/CUP_ROC/README.md)
 - [CBA_A3 Wiki](https://github.com/CBATeam/CBA_A3/wiki) for macros such as
   `CSTRING()` and `QPATHTO_T`.
 - [Antistasi Ultimate source](https://github.com/Antistasi-Ultimate-Community/A3-Antistasi-Ultimate),

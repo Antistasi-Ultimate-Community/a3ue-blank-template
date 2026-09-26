@@ -250,10 +250,28 @@ Small templates may keep all code in one file. Larger templates should use
 include is preprocessor text substitution, so variables declared in the main
 file remain available and included files must be inserted at the correct point.
 
+## Complete example: CUP_ROC
+
+[`Examples`](Examples) is illustrative only; [`CUP_ROC`](CUP_ROC) is a
+complete, currently-registered occupant faction built on CUP's Republic of
+China Army assets. Its template file, `CUP_AI_ROC.sqf`, follows the same
+structure documented above and includes the same `Definitions` files as the
+other occupant examples.
+
+CUP_ROC also goes one step further than a template: its folder adds new
+reusable game content — retextured uniforms and vests, and a custom map
+marker carrying the faction's flag — via its own `config.cpp`, `CfgMarkers.hpp`,
+`CfgVehicles.hpp`, `CfgWeapons.hpp`, and `data` textures. That is a different
+layer from the template SQF covered in this guide: it defines new classnames
+that the template then references, rather than only reusing classnames from
+other mods. See [`CUP_ROC/README.md`](CUP_ROC/README.md) for how those files
+are structured and how to add your own retextures or markers.
+
 ## References
 
 - [Faction examples](Examples/README.md)
 - [Shared Definitions guide](Definitions/README.md)
+- [CUP_ROC complete example guide](CUP_ROC/README.md)
 - [Antistasi Ultimate source](https://github.com/Antistasi-Ultimate-Community/A3-Antistasi-Ultimate),
     especially `addons/core/Templates`, template initialization, and loadout
     helper functions.

@@ -6,6 +6,13 @@ types supported by the addon. Copy the closest example and remove or replace
 its class names and pools; do not treat every empty array as a bug because
 empty optional capabilities are intentional.
 
+These examples are illustrative only and reuse existing Arma 3 classnames; the
+classes in `CfgTemplates.hpp` that register them are commented out. For a
+complete, currently-registered occupant faction that also adds new content
+(retextured uniforms/vests and a custom map marker) rather than only reusing
+existing classes, see [`../CUP_ROC`](../CUP_ROC) and its
+[README](../CUP_ROC/README.md).
+
 ## Which example should I copy?
 
 | Template type | Example | Use it for |
@@ -156,6 +163,7 @@ copied inline for a small template, but separate files are easier to maintain.
 ## External references
 
 - [Shared Definitions guide](../Definitions/README.md)
+- [CUP_ROC complete example guide](../CUP_ROC/README.md)
 - [Template framework and built-in factions](https://github.com/Antistasi-Ultimate-Community/A3-Antistasi-Ultimate/tree/main/A3A/addons/core/Templates)
 - [Antistasi Ultimate source](https://github.com/Antistasi-Ultimate-Community/A3-Antistasi-Ultimate)
   for `_fnc_saveToTemplate`, loadout helpers, default vehicle attributes,
