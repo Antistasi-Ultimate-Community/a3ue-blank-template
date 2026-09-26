@@ -1,5 +1,5 @@
 // ! Skip adding to hashmap if the variable is not defined
-#define SKIP_NIL(name, data) if (!isNil QUOTE(data)) then { [name, data] call _fnc_saveToTemplate }
+#define SKIP_NIL(name,data) if (!isNil QUOTE(data)) then { [name, data] call _fnc_saveToTemplate }
 
 SKIP_NIL("vehiclesBasic",_vehiclesBasic);
 SKIP_NIL("vehiclesTruck",_vehiclesTruck);
