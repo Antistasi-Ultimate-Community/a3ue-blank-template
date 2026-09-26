@@ -11,11 +11,6 @@ class A3A {
             logo = "a3\ui_f\data\logos\arma3_expansion_ca.paa"; // Logo displayed in faction setup dialog. It may either be your own logo for the extender, or the logo from the mod you used to create the extender, e.g. RHS logo
             basepath = QPATHTOFOLDER(templates); // path to the folder containing the faction template(s)
             file = "MyFaction"; // filename (without the .sqf extension) of the faction template
-            /* Path to the faction's flag texture; define your own with the QPATHTO_T macro.
-             * If, for example, in "example_faction\flags\myFlag.paa", you would use:
-             *
-             *     flagTexture = QPATHTO_T(flags\myFlag.paa);
-             */
             flagTexture = "a3\data_f\flags\flag_fia_co.paa";
             side = "Reb"; // side of the faction (Civ, Inv, Occ, Reb)
             climate[] = {"temperate", "tropical", "arid"}; // map climates for which the faction is designed. If defined, the faction will only show up in the setup dialog if the selected map is one of these climates. Do not include this property if the faction should always be available / is not climate-specific
