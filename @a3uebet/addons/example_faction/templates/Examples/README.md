@@ -21,21 +21,45 @@ They show a local `Example_Base` class, an occupant child, an invader child
 inheriting from that occupant, and separate rival, rebel, and civilian
 children. `basepath` and `file` must match the directory and script filename.
 
+## Shared Definitions
+
+Each example `#include`s several files from [`../Definitions`](../Definitions)
+for content that is largely fixed for that faction type: DLC/mod detection,
+flag/marker side information, bulk vehicle-to-template saving, and unit role
+templates. Declare the `private` variables the includes expect, then let the
+include save and generate the rest.
+
+| Faction type | DLC detection | Side information | Vehicle save | Unit templates | Loadout |
+| --- | --- | --- | --- | --- | --- |
+| Occupant / Invader | `DLC_Content.sqf` | `Side_Information.sqf` | `Vehicles_SaveToTemplate.sqf` | `Unit_Templates.sqf` | Defined inline (tiers vary too much to share) |
+| Rebel | Extra checks stay inline | `Reb_Side_Information.sqf` | `Reb_Vehicles_SaveToTemplate.sqf` | `Reb_Unit_Templates.sqf` | `Reb_Loadouts.sqf` |
+| Rival | Defined inline if needed | Defined inline (only `name`/`nameLeader`) | `Riv_Vehicles_SaveToTemplate.sqf` | `Riv_Unit_Templates.sqf` | Defined inline |
+| Civilian | Defined inline if needed | Not applicable | `Civ_Vehicles_SaveToTemplate.sqf` | `Civ_Unit_Templates.sqf` | Defined inline |
+
+See [`Definitions/README.md`](../Definitions/README.md) for what each include
+does and when it is safe to edit versus leave alone.
+
 ## Occupant and invader
 
 Start with [`Example_Occ.sqf`](Example_Occ.sqf) for the most complete template.
 Edit these sections:
 
-1. Optional DLC/mod checks and soft-compat additions.
-2. Faction information, including name, spawn marker, flag, and marker type.
+1. Optional DLC/mod checks and soft-compat additions. Common DLC checks come
+	from `Definitions/DLC_Content.sqf`; add extra checks directly in the
+	template for mods that file doesn't cover.
+2. Faction information, including name and spawn marker name. Flag, flag
+	texture default, and marker type come from `Definitions/Side_Information.sqf`
+	unless overridden.
 3. Vehicle and static-weapon pools, including militia, police, air, naval, and
-	special-purpose categories.
+	special-purpose categories. These are saved in bulk by
+	`Definitions/Vehicles_SaveToTemplate.sqf`.
 4. Identities, generic names, and optional tier-specific faces, voices, and
 	insignia.
 5. Default loadout data and role-specific item pools.
 6. Militia, military, elite, special-forces, police, crew, and pilot loadout
 	copies where the faction needs differences between tiers.
-7. Unit templates and the final generator call.
+7. Unit templates and the final generator call, included from
+	`Definitions/Unit_Templates.sqf`.
 
 The invader version has the same requirements. Registering it as `Inv` is
 usually the main difference, but review the source template if the faction's
@@ -46,7 +70,10 @@ unit progression should differ.
 [`Example_Reb.sqf`](Example_Reb.sqf) is intentionally shorter. Rebels acquire
 most specialized weapons and vehicles during gameplay, so define the smaller
 rebel store pools and civilian undercover pools instead of copying every enemy
-category. Edit:
+category. Flag/marker defaults come from `Definitions/Reb_Side_Information.sqf`,
+vehicle pools are saved by `Definitions/Reb_Vehicles_SaveToTemplate.sqf`, the
+default loadout hashmap is `Definitions/Reb_Loadouts.sqf`, and the unit roles
+and generator call are `Definitions/Reb_Unit_Templates.sqf`. Edit:
 
 - rebel name, flag, texture, and marker;
 - rebel-store vehicles, static defenses, mines, and breaching explosives;
@@ -64,10 +91,11 @@ For rebel emplacements, the first class in an array is the class actually used.
 
 [`Example_Riv.sqf`](Example_Riv.sqf) documents the rival-specific keys such as
 `vehiclesRivalsCars`, `vehiclesRivalsAPCs`, `staticLowWeapons`, and
-`handGrenadeAmmo`. Rival factions do not normally need occupant-style
-militia/military/elite tiers. Define the rival identities, vehicle/static
-pools, one main loadout hashmap, optional crew/pilot copies, role templates,
-and generator call.
+`handGrenadeAmmo`, saved by `Definitions/Riv_Vehicles_SaveToTemplate.sqf`. Rival
+factions do not normally need occupant-style militia/military/elite tiers.
+Define the rival identities, vehicle/static pools, one main loadout hashmap,
+optional crew/pilot copies, role templates, and generator call; the role
+templates and generator call live in `Definitions/Riv_Unit_Templates.sqf`.
 
 The rival example also demonstrates `A3A_hasACE` checks, custom role item
 pools, and separate crew and pilot loadouts. Preserve the compatibility keys
@@ -78,7 +106,9 @@ pools, and separate crew and pilot loadouts. Preserve the compatibility keys
 [`Example_Civ.sqf`](Example_Civ.sqf) is the smallest example. Define civilian
 vehicle pools, faces, civilian/press/worker/VIP uniforms and headgear, the
 civilian loadout hashmap, and the four unit templates: `Man`, `Worker`, `Press`,
-and `VIP`.
+and `VIP`. Vehicle pools are saved by `Definitions/Civ_Vehicles_SaveToTemplate.sqf`
+and the four unit templates plus generator call live in
+`Definitions/Civ_Unit_Templates.sqf`.
 
 Civilian vehicle pools must normally be weighted arrays, for example:
 
@@ -125,6 +155,7 @@ copied inline for a small template, but separate files are easier to maintain.
 
 ## External references
 
+- [Shared Definitions guide](../Definitions/README.md)
 - [Template framework and built-in factions](https://github.com/Antistasi-Ultimate-Community/A3-Antistasi-Ultimate/tree/main/A3A/addons/core/Templates)
 - [Antistasi Ultimate source](https://github.com/Antistasi-Ultimate-Community/A3-Antistasi-Ultimate)
   for `_fnc_saveToTemplate`, loadout helpers, default vehicle attributes,

@@ -26,6 +26,30 @@ The normal order is:
 Keep definitions before the save or include that consumes them. A soft-compat
 vehicle must be added to its array before that array is saved.
 
+## Shared Definitions
+
+Content that rarely changes between factions of the same type, or that should
+not normally be edited by hand, has been moved into
+[`Definitions`](Definitions) and pulled into each example with `#include`.
+This keeps the example scripts focused on the data that actually varies
+between factions. Definitions files currently cover:
+
+- DLC/mod detection (`DLC_Content.sqf`)
+- Flag and flag-marker side information (`Side_Information.sqf`,
+  `Reb_Side_Information.sqf`)
+- Bulk `_fnc_saveToTemplate` calls for vehicle pools
+  (`Vehicles_SaveToTemplate.sqf` and its `Reb_`/`Riv_`/`Civ_` counterparts)
+- Tier-agnostic unit role templates and the final generator call
+  (`Unit_Templates.sqf` and its `Reb_`/`Riv_`/`Civ_` counterparts)
+- The rebel default loadout hashmap (`Reb_Loadouts.sqf`)
+
+If you need to rename a category, add a new vehicle/equipment pool, add a new
+role, or change a flag or marker, see
+[`Definitions/README.md`](Definitions/README.md) for exactly what to edit and
+what to leave alone. Most template creators only need to declare the
+appropriate `private` variables in their own template file; the include files
+take care of saving them.
+
 ## Sections and requirements
 
 "Required" means required for a useful, valid implementation of that faction
@@ -58,6 +82,14 @@ See [`Examples/README.md`](Examples/README.md) for a side-by-side guide and
 links to each complete example.
 
 ## Vehicles and equipment
+
+Vehicle and static-weapon pools are saved in bulk by
+`#include "..\Definitions\Vehicles_SaveToTemplate.sqf"` (or its `Reb_`/`Riv_`/
+`Civ_` counterpart). These files use a `SKIP_NIL` macro that only calls
+`_fnc_saveToTemplate` for a pool if its `private` variable was actually
+declared. To leave out a category entirely, omit the `private` declaration in
+your template file instead of editing the include file; to add a brand new
+category, see [`Definitions/README.md`](Definitions/README.md).
 
 Use the variable names and save keys shown in the examples. Enemy templates
 separate cars, trucks, APCs, IFVs, tanks, aircraft, boats, militia vehicles,
@@ -133,10 +165,19 @@ private _unitTypes = [
 [_prefix, _unitTypes, _loadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 ```
 
+In these examples, the role template functions and this final generator call
+live in `#include "..\Definitions\Unit_Templates.sqf"` (or its `Reb_`/`Riv_`/
+`Civ_` counterpart), included once the faction's loadout hashmap(s) are
+defined. The rebel loadout hashmap itself is also shared, in
+`Definitions\Reb_Loadouts.sqf`; occupant/invader, rival, and civilian loadout
+hashmaps stay inline because their tiers and roles vary too much to share.
+
 Avoid changing the supplied unit templates until the loadout system is
 understood and tested in game. The helper functions used here are implemented
 by Antistasi Ultimate; inspect its `addons/core/Templates` and template
-functions for additional supported keys.
+functions for additional supported keys. See
+[`Definitions/README.md`](Definitions/README.md) for what is safe to edit in
+those include files.
 
 ## Random and weighted pools
 
@@ -212,6 +253,7 @@ file remain available and included files must be inserted at the correct point.
 ## References
 
 - [Faction examples](Examples/README.md)
+- [Shared Definitions guide](Definitions/README.md)
 - [Antistasi Ultimate source](https://github.com/Antistasi-Ultimate-Community/A3-Antistasi-Ultimate),
     especially `addons/core/Templates`, template initialization, and loadout
     helper functions.
