@@ -1,3 +1,5 @@
+#pragma hemtt ignore_variables ["_fnc_saveToTemplate"]
+
 // Note: vehicle attributes files for enemy factions are used to modify the default cost and threat of vehicles
 //
 //      Cost is roughly how much it costs the enemy faction to deploy this type of asset. Vehicles generally have a standardized cost depending on what type of vehicle they are;
@@ -32,5 +34,5 @@
 
     // Tank destroyer strykers, not tough (threat is set lower because they have heavy armament but weak armor)
     ["CUP_B_M1128_MGS_Woodland", ["cost", 120], ["threat", 180]],
-    ["CUP_B_M1128_MGS_Desert", ["cost", 120], ["threat", 180]],
+    ["CUP_B_M1128_MGS_Desert", ["cost", 120], ["threat", 180]]
 ]] call _fnc_saveToTemplate;
