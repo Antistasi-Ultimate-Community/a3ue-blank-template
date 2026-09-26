@@ -286,8 +286,11 @@ marker carrying the faction's flag — via its own `config.cpp`, `CfgMarkers.hpp
 `CfgVehicles.hpp`, `CfgWeapons.hpp`, and `data` textures. That is a different
 layer from the template SQF covered in this guide: it defines new classnames
 that the template then references, rather than only reusing classnames from
-other mods. See [`CUP_ROC/README.md`](CUP_ROC/README.md) for how those files
-are structured and how to add your own retextures or markers.
+other mods. The faction is also self-contained: it registers itself with its
+own `CfgTemplates.hpp`, included from its `config.cpp`, instead of being added
+to the shared root `CfgTemplates.hpp`. See [`CUP_ROC/README.md`](CUP_ROC/README.md)
+for how those files are structured and how to add your own retextures or
+markers.
 
 ## References
 

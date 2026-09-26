@@ -2,11 +2,16 @@
 
 Unlike [`../Examples`](../Examples), which only reuse existing Arma 3 or mod
 classnames, this folder is a fully implemented, currently-registered occupant
-faction (see `CUP_ROC` in [`../../CfgTemplates.hpp`](../../CfgTemplates.hpp)).
-It uses CUP's Republic of China Army assets (`Flex_CUP_ROC_Faction`) as a base
-and *adds new content on top of them*: retextured uniforms and vests, and a
-custom map marker carrying the faction's flag. That content is what
-`CUP_AI_ROC.sqf` then references.
+faction. It uses CUP's Republic of China Army assets (`Flex_CUP_ROC_Faction`)
+as a base and *adds new content on top of them*: retextured uniforms and
+vests, and a custom map marker carrying the faction's flag. That content is
+what `CUP_AI_ROC.sqf` then references.
+
+The faction is also self-contained: it registers itself with its own
+[`CfgTemplates.hpp`](CfgTemplates.hpp), included from this folder's own
+`config.cpp`, instead of being added to the shared root
+[`../../CfgTemplates.hpp`](../../CfgTemplates.hpp) (which currently only holds
+commented-out illustrative examples).
 
 This is a second, optional layer beyond the template SQF documented in
 [`../README.md`](../README.md) and [`../Examples/README.md`](../Examples/README.md):
@@ -18,6 +23,7 @@ recombining classnames that already exist.
 | File | Purpose |
 | --- | --- |
 | `config.cpp` | Declares this as its own addon component (`CfgPatches`), lists every new class it adds, and includes the other `.hpp` files. |
+| `CfgTemplates.hpp` | Registers the `CUP_ROC` template class under `A3A > Templates`, self-contained in this folder. |
 | `CfgMarkers.hpp` | Adds the `flag_ROC` map marker used by the faction's flag/support corridor. |
 | `CfgVehicles.hpp` | Retextures the *worn* uniform/vest object classes (the "vehicle" that represents clothing on a character). |
 | `CfgWeapons.hpp` | Adds the *inventory item* classes for those uniforms/vests, and links each one back to its `CfgVehicles` class. |
@@ -42,6 +48,7 @@ class CfgPatches {
 #include "CfgMarkers.hpp"
 #include "CfgVehicles.hpp"
 #include "CfgWeapons.hpp"
+#include "CfgTemplates.hpp"
 ```
 
 - `PATCHNAME(CUP_ROC)` names this `CfgPatches` entry after the file/feature, so
@@ -55,6 +62,40 @@ class CfgPatches {
 - `skipWhenMissingDependencies = 1` lets this component's PBO fail to load
   gracefully if the required addon isn't present, instead of erroring the
   whole mod.
+- The final `#include "CfgTemplates.hpp"` registers the faction template
+  itself once all the retextured classes it depends on are defined above it.
+
+## `CfgTemplates.hpp`
+
+```cpp
+class A3A {
+    class Templates {
+        class CUP_Base; // import the CUP base class from Antistasi Ultimate
+
+        class CUP_ROC : CUP_Base {
+            requiredAddons[] += {"Flex_CUP_ROC_Faction"};
+            logo = QPATHTO_T(templates\CUP_ROC\CUP_ROC_logo.paa);
+            flagTexture = "Flex_CUP_ROC_Faction\Data\Flag\ROC_Flag_co.paa";
+            basepath = QPATHTOFOLDER(templates\CUP_ROC);
+            file = "CUP_AI_ROC";
+            side = "Occ";
+            name = CSTRING(CUP_ROC);
+            description = CSTRING(CUP_ROC_Description);
+        };
+    };
+};
+```
+
+This is the same `A3A > Templates` registration pattern documented in
+[`../../README.md`](../../README.md) and [`../README.md`](../README.md), except
+it lives beside the rest of the faction's files instead of in the shared root
+`CfgTemplates.hpp`. `CUP_Base` is forward-declared and imported from Antistasi
+Ultimate itself (rather than a local base class like the commented-out
+`Example_Base`), so `requiredAddons[]` uses `+=` to add to whatever
+dependencies `CUP_Base` already lists instead of replacing them.
+
+Keeping registration, new content, and the template script together in one
+folder means the whole faction can be copied, moved, or removed as a unit.
 
 ## `CfgMarkers.hpp`
 

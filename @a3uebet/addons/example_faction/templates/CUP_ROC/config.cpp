@@ -51,3 +51,4 @@ class CfgPatches {
 #include "CfgMarkers.hpp"
 #include "CfgVehicles.hpp"
 #include "CfgWeapons.hpp"
+#include "CfgTemplates.hpp"
