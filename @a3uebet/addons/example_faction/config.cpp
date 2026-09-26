@@ -15,4 +15,3 @@ class CfgPatches {
 };
 
 #include "CfgTemplates.hpp"
-#include "CfgMarkers.hpp"
