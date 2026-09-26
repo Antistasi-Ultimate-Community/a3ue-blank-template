@@ -1,3 +1,6 @@
+#include "..\..\script_component.hpp"
+#pragma hemtt ignore_variables ["_fnc_createLoadoutData","_fnc_generateAndSaveUnitsToTemplate","_fnc_saveToTemplate"]
+
 // Note: Civilian faction templates are the simplest and shortest of the faction templates.
 // They are structured very similarly to occupant and invader templates, but we're only really concerned with defining civilian vehicles and a few types of civilian units
 //      The basic sections of the template are:

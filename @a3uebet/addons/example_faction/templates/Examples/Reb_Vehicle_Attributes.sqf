@@ -1,3 +1,5 @@
+#pragma hemtt ignore_variables ["_fnc_saveToTemplate"]
+
 // Note: the idea of rebel vehicle attributes is similar to enemy vehicle attributes,
 //      but here we are adjusting how much vehicles cost for rebels to buy in the rebel store based
 //      the attributes of the vehicle being particularly high or low for the type of vehicle.
@@ -21,5 +23,5 @@
     ["Flex_CUP_LUF_Hilux_armored_zu23", ["rebCost", 3000]],
     ["Flex_CUP_FIA_Hilux_armored_unarmed", ["rebCost", 1000]],
     ["Flex_CUP_FIA_Hilux_armored_M2", ["rebCost", 2000]],
-    ["Flex_CUP_FIA_Hilux_armored_zu23", ["rebCost", 3000]],
+    ["Flex_CUP_FIA_Hilux_armored_zu23", ["rebCost", 3000]]
 ]] call _fnc_saveToTemplate;

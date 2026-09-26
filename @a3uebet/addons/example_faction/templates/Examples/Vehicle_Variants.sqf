@@ -1,3 +1,5 @@
+#pragma hemtt ignore_variables ["_fnc_saveToTemplate"]
+
 // Note: variants are used to define different visual appearances of a vehicle, e.g. different camouflage patterns, paint jobs, or liveries.
 //      Variants should be defined as weighted-list arrays, with each paint scheme of the vehicle and a chance of it being used
 //      Different vehicles may have few, many, or no variants

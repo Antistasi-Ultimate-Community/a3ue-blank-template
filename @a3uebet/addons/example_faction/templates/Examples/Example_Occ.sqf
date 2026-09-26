@@ -1,3 +1,6 @@
+#include "..\..\script_component.hpp"
+#pragma hemtt ignore_variables ["_fnc_createLoadoutData","_fnc_copyLoadoutData","_muzzleDevices","_optics","_railAttachments","_fnc_saveNames","_fnc_generateAndSaveUnitsToTemplate","_fnc_saveToTemplate"]
+
 //////////////////////////
 //   DLC / Mod Content  //
 //////////////////////////
@@ -137,7 +140,7 @@ private _vehiclesDropPod = []; // drop pods (think space marines); used in unfai
 
 if (_hasQAV) then { _vehiclesTanks pushBack "acm_gm_aaf2028_afor_gb_tracked_qav_challenger2" }; // add the challenger 2 tank to tanks array only if the QAV - Challenger 2 mod is loaded, *before* we add the vehicle data to the faction hashmap below
 
-#include "Vehicles_SaveToTemplate.sqf" // save all vehicle arrays to the faction template
+#include "..\Definitions\Vehicles_SaveToTemplate.sqf" // save all vehicle arrays to the faction template
 
 
 

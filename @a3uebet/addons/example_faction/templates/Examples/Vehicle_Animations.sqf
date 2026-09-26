@@ -1,3 +1,5 @@
+#pragma hemtt ignore_variables ["_fnc_saveToTemplate"]
+
 // Note: animations are used to add or remove cosmetic elements of a vehicle, e.g. spare tires, radio antennas, camouflage netting, etc
 //      Animations should be defined as weighted-list arrays, with each modifiable part of the vehicle and a chance of it being activated
 //      Different vehicles may have few, many, or no animations

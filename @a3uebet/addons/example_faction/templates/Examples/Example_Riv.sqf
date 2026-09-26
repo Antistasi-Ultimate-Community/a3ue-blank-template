@@ -1,3 +1,6 @@
+#include "..\..\script_component.hpp"
+#pragma hemtt ignore_variables ["_fnc_createLoadoutData","_fnc_copyLoadoutData","_fnc_generateAndSaveUnitsToTemplate","_fnc_saveToTemplate"]
+
 // Note: Rival faction templates are structured very similarly to occupant and invader templates, but with significantly less vehicle and equipment definitions required,
 //      since there are no rival "tiers" based on war level
 //      The basic sections of the template are the same though:

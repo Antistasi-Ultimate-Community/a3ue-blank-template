@@ -1,3 +1,5 @@
+#pragma hemtt ignore_variables ["_fnc_createLoadoutData","_rebUniformsAI","_rebFacewear"]
+
 // Note: rebel faction templates only have one loadout data hashmap as there are no rebel "tiers"
 private _loadoutData = call _fnc_createLoadoutData;
 

@@ -1,3 +1,5 @@
+#pragma hemtt ignore_variables ["_fnc_setHelmet","_fnc_setFacewear","_fnc_setVest","_fnc_setUniform","_fnc_setPrimary","_fnc_addMagazines","_fnc_addAdditionalMuzzleMagazines","_fnc_setHandgun","_fnc_addItemSet","_fnc_addItem","_fnc_addMap","_fnc_addWatch","_fnc_addCompass","_fnc_addRadio","_fnc_addGPS","_fnc_addBinoculars","_fnc_addNVGs","_loadoutData","_crewLoadoutData","_pilotLoadoutData","_fnc_generateAndSaveUnitsToTemplate"]
+
 // See documentation in the occupant template for details on defining unit templates.
 // Though the unit templates for rivals are different, they work the same way.
 // As with the other templates, don't modify these unless you *really* know what you're doing.
