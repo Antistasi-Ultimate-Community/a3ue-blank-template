@@ -15,9 +15,8 @@
 ///////////////////////////
 
 ["name", "Faction Name"] call _fnc_saveToTemplate; // faction name as shown on the map and in game dialogs; should be short
-["flag", "Flag_FIA_F"] call _fnc_saveToTemplate; // classname of the faction's flag object. No need to change this.
 ["flagTexture", "a3\data_f\flags\flag_fia_co.paa"] call _fnc_saveToTemplate; // path to the faction's flag texture
-["flagMarkerType", "flag_FIA"] call _fnc_saveToTemplate; // classname of the faction's flag marker; will be used on the map for airbases; needs to exist in CfgMarkers
+#include "..\Definitions\Reb_Side_Information.sqf"
 
 
 
@@ -29,6 +28,9 @@
 
 // Note: mostly the same as in the occupant and invader templates, but with fewer vehicles defined since rebels acquire most of their equipment during gameplay.
 //      Pay attention to names as some are similar, but not the same as those used in the occupant and invader templates.
+
+private _lootCrate = []; // the loot crate object
+private _rallyPoint = []; // the rally point object
 
 // Rebel vehicles. These will be available (depending on war level) for purchase in the rebel store.
 private _vehiclesBasic = []; // small, unarmed transport vehicles; generally, a quad bike, motorcycle, or similar
@@ -65,33 +67,7 @@ private _vehiclesCivHeli = []; // civilian helicopters
 private _vehiclesCivBoat = []; // civilian boats and other watercraft
 private _vehiclesCivPlane = []; // civilian planes
 
-["vehiclesBasic", _vehiclesBasic] call _fnc_saveToTemplate;
-["vehiclesTruck", _vehiclesTruck] call _fnc_saveToTemplate;
-["vehiclesLightUnarmed", _vehiclesLightUnarmed] call _fnc_saveToTemplate;
-["vehiclesLightArmed", _vehiclesLightArmed] call _fnc_saveToTemplate;
-["vehiclesAT", _vehiclesAT] call _fnc_saveToTemplate;
-["vehiclesAA", _vehiclesAA] call _fnc_saveToTemplate;
-["vehiclesBoat", _vehiclesBoat] call _fnc_saveToTemplate;
-["vehiclesPlane", _vehiclesPlane] call _fnc_saveToTemplate;
-["vehiclesMedical", _vehiclesMedical] call _fnc_saveToTemplate;
-["staticMG", _staticMG] call _fnc_saveToTemplate;
-["staticAT", _staticAT] call _fnc_saveToTemplate;
-["staticAA", _staticAA] call _fnc_saveToTemplate;
-["staticMortar", _staticMortar] call _fnc_saveToTemplate;
-["staticMortarMagHE", _staticMortarMagHE] call _fnc_saveToTemplate;
-["staticMortarMagSmoke", _staticMortarMagSmoke] call _fnc_saveToTemplate;
-["staticMortarMagFlare", _staticMortarMagFlare] call _fnc_saveToTemplate;
-["minesAT", _minesAT] call _fnc_saveToTemplate;
-["minesAPERS", _minesAPERS] call _fnc_saveToTemplate;
-["breachingExplosivesAPC", _breachingExplosivesAPC] call _fnc_saveToTemplate;
-["breachingExplosivesTank", _breachingExplosivesTank] call _fnc_saveToTemplate;
-
-["vehiclesCivCar", _vehiclesCivCar] call _fnc_saveToTemplate;
-["vehiclesCivTruck", _vehiclesCivTruck] call _fnc_saveToTemplate;
-["vehiclesCivSupply", _vehiclesCivSupply] call _fnc_saveToTemplate;
-["vehiclesCivHeli", _vehiclesCivHeli] call _fnc_saveToTemplate;
-["vehiclesCivBoat", _vehiclesCivBoat] call _fnc_saveToTemplate;
-["vehiclesCivPlane", _vehiclesCivPlane] call _fnc_saveToTemplate;
+#include "..\Definitions\Reb_Vehicles_SaveToTemplate.sqf"
 
 // Advanced vehicle modifications
 // Note: See the documentation in each #include'd file for details
@@ -204,22 +180,7 @@ private _rebVoices = [];
 //       Loadouts       //
 //////////////////////////
 
-// Note: rebel faction templates only have one loadout data hashmap as there are no rebel "tiers"
-private _loadoutData = call _fnc_createLoadoutData;
-
-// Basic equipment
-_loadoutData set ["maps", ["ItemMap"]]; // change as needed
-_loadoutData set ["watches", ["ItemWatch"]]; // change as needed
-_loadoutData set ["compasses", ["ItemCompass"]]; // change as needed
-_loadoutData set ["binoculars", ["Binocular"]]; // change as needed
-
-_loadoutData set ["uniforms", _rebUniformsAI];
-_loadoutData set ["facewear", _rebFacewear];
-
-_loadoutData set ["items_medical_basic", ["BASIC"] call A3A_fnc_itemset_medicalSupplies];
-_loadoutData set ["items_medical_standard", ["STANDARD"] call A3A_fnc_itemset_medicalSupplies];
-_loadoutData set ["items_medical_medic", ["MEDIC"] call A3A_fnc_itemset_medicalSupplies];
-_loadoutData set ["items_miscEssentials", [] call A3A_fnc_itemset_miscEssentials];
+#include "..\Definitions\Reb_Loadouts.sqf"
 
 
 
@@ -229,46 +190,4 @@ _loadoutData set ["items_miscEssentials", [] call A3A_fnc_itemset_miscEssentials
 //  Rebel Unit Types  //
 ///////////////////////.
 
-// As in the occupant / invader templates, there's no reason to change anything in this section unless you *really* know what you're doing
-// Bear in mind that rebel loadouts are either randomly generated in game from the contents of the arsenal, or created by players in the rebel loadouts GUI editor;
-//      therefore, changes here wouldn't matter much anyway
-
-private _squadLeaderTemplate = {
-    ["uniforms"] call _fnc_setUniform;
-    ["facewear"] call _fnc_setFacewear;
-
-    ["maps"] call _fnc_addMap;
-    ["watches"] call _fnc_addWatch;
-    ["compasses"] call _fnc_addCompass;
-    ["binoculars"] call _fnc_addBinoculars;
-};
-
-private _riflemanTemplate = {
-    ["uniforms"] call _fnc_setUniform;
-    ["facewear"] call _fnc_setFacewear;
-
-    ["maps"] call _fnc_addMap;
-    ["watches"] call _fnc_addWatch;
-    ["compasses"] call _fnc_addCompass;
-};
-
-private _prefix = "militia";
-private _unitTypes = [
-    ["Petros", _squadLeaderTemplate],
-    ["SquadLeader", _squadLeaderTemplate],
-    ["Rifleman", _riflemanTemplate],
-    ["staticCrew", _riflemanTemplate],
-    ["Medic", _riflemanTemplate, [["medic", true]]],
-    ["Engineer", _riflemanTemplate, [["engineer", true]]],
-    ["ExplosivesExpert", _riflemanTemplate, [["explosiveSpecialist", true]]],
-    ["Grenadier", _riflemanTemplate],
-    ["LAT", _riflemanTemplate],
-    ["AT", _riflemanTemplate],
-    ["AA", _riflemanTemplate],
-    ["MachineGunner", _riflemanTemplate],
-    ["Marksman", _riflemanTemplate],
-    ["Sniper", _riflemanTemplate],
-    ["Unarmed", _riflemanTemplate]
-];
-
-[_prefix, _unitTypes, _loadoutData] call _fnc_generateAndSaveUnitsToTemplate;
+#include "..\Definitions\Reb_Unit_Templates.sqf"

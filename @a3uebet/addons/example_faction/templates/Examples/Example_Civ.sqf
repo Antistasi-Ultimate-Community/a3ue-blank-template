@@ -26,14 +26,7 @@ private _vehiclesCivBoat = []; // boats and watercraft, typically used for civil
 private _vehiclesCivPlanes = []; // planes and civilian aircraft, typically used for civilian air transport and recreational flying; not really used for anything but ambient events
 private _vehiclesCivHeli = []; // helicopters and civilian rotorcraft, typically used for civilian air transport and recreational flying; not really used for anything but ambient events; not really used for anything but ambient events
 
-["vehiclesCivCar", _vehiclesCivCar] call _fnc_saveToTemplate;
-["vehiclesCivIndustrial", _vehiclesCivIndustrial] call _fnc_saveToTemplate;
-["vehiclesCivRepair", _vehiclesCivRepair] call _fnc_saveToTemplate;
-["vehiclesCivMedical", _vehiclesCivMedical] call _fnc_saveToTemplate;
-["vehiclesCivFuel", _vehiclesCivFuel] call _fnc_saveToTemplate;
-["vehiclesCivBoat", _vehiclesCivBoat] call _fnc_saveToTemplate;
-["vehiclesCivPlanes", _vehiclesCivPlanes] call _fnc_saveToTemplate;
-["vehiclesCivHeli", _vehiclesCivHeli] call _fnc_saveToTemplate;
+#include "..\Definitions\Civ_Vehicles_SaveToTemplate.sqf"
 
 // Advanced vehicle modifications
 // Note: See the documentation in each #include'd file for details
@@ -91,57 +84,4 @@ _loadoutData set ["sidearms", ["hgun_Pistol_heavy_02_F", "hgun_ACPC2_F", "hgun_P
 //        Unit Templates       //
 /////////////////////////////////
 
-// Don't modify unless you *really* know what you're doing
-
-private _manTemplate = {
-  ["helmets"] call _fnc_setHelmet;
-  ["uniforms"] call _fnc_setUniform;
-
-  ["items_medical_standard"] call _fnc_addItemSet;
-
-  ["maps"] call _fnc_addMap;
-  ["watches"] call _fnc_addWatch;
-  ["compasses"] call _fnc_addCompass;
-};
-private _workerTemplate = {
-  [["workerHelmets", "helmets"] call _fnc_fallback] call _fnc_setHelmet;
-  ["workerUniforms"] call _fnc_setUniform;
-
-  ["items_medical_standard"] call _fnc_addItemSet;
-
-  ["maps"] call _fnc_addMap;
-  ["watches"] call _fnc_addWatch;
-  ["compasses"] call _fnc_addCompass;
-};
-private _pressTemplate = {
-  ["pressHelmets"] call _fnc_setHelmet;
-  ["pressVests"] call _fnc_setVest;
-  ["pressUniforms"] call _fnc_setUniform;
-
-  ["items_medical_standard"] call _fnc_addItemSet;
-
-  ["maps"] call _fnc_addMap;
-  ["watches"] call _fnc_addWatch;
-  ["compasses"] call _fnc_addCompass;
-};
-private _vipTemplate = {
-  ["vipUniforms"] call _fnc_setUniform;
-
-  ["items_medical_standard"] call _fnc_addItemSet;
-
-  ["maps"] call _fnc_addMap;
-  ["watches"] call _fnc_addWatch;
-  ["compasses"] call _fnc_addCompass;
-
-  ["sidearms"] call _fnc_setHandgun;
-  ["handgun", 2] call _fnc_addMagazines;
-};
-private _prefix = "militia";
-private _unitTypes = [
-  ["VIP", _vipTemplate],
-  ["Press", _pressTemplate],
-  ["Worker", _workerTemplate],
-  ["Man", _manTemplate]
-];
-
-[_prefix, _unitTypes, _loadoutData] call _fnc_generateAndSaveUnitsToTemplate;
+#include "..\Definitions\Civ_Unit_Templates.sqf"
