@@ -1,7 +1,7 @@
 #pragma hemtt ignore_variables ["_ammobox","_surrenderCrate","_equipmentBox","_smallBunker","_sandbag","_sandbagRound","_vehiclesBasic","_vehiclesLightUnarmed","_vehiclesLightArmed","_vehiclesTrucks","_vehiclesCargoTrucks","_vehiclesAmmoTrucks","_vehiclesRepairTrucks","_vehiclesFuelTrucks","_vehiclesMedical","_vehiclesLightAPCs","_vehiclesAPCs","_vehiclesIFVs","_vehiclesLightTanks","_vehiclesTanks","_vehiclesArtillery","_magazinesArtillery","_vehiclesAA","_vehiclesHelisLight","_vehiclesHelisLightAttack","_vehiclesHelisTransport","_vehiclesHelisAttack","_vehiclesPlanesTransport","_vehiclesPlanesCAS","_vehiclesPlanesAA","_vehiclesPlanesLargeCAS","_vehiclesPlanesLargeAA","_vehiclesPlanesGunship","_uavsPortable","_uavsAttack","_vehiclesTransportBoats","_vehiclesGunboats","_vehiclesSDV","_vehiclesMilitiaCars","_vehiclesMilitiaLightArmed","_vehiclesMilitiaTrucks","_vehiclesMilitiaAPCs","_vehiclesPolice","_vehiclesAirPatrol","_vehiclesAirborne","_vehiclesAmphibious","_vehiclesDropPod","_staticMortars","_mortarMagazineHE","_mortarMagazineSmoke","_mortarMagazineFlare","_staticHowitzers","_howitzerMagazineHE","_staticAA","_staticAT","_staticMGs","_vehicleRadar","_vehicleSAM","_minefieldAT","_minefieldAPERS","_fnc_saveToTemplate"]
 
 // ! Skip adding to hashmap if the variable is not defined
-#define SKIP_NIL(VAR_NAME,VAR_DATA) if (!isNil VAR_DATA) then { [VAR_NAME, VAR_DATA] call _fnc_saveToTemplate };
+#define SKIP_NIL(VAR_NAME,VAR_DATA) if (!isNil {VAR_DATA}) then { [VAR_NAME, VAR_DATA] call _fnc_saveToTemplate };
 
 SKIP_NIL("ammobox",_ammobox)
 SKIP_NIL("surrenderCrate",_surrenderCrate)

@@ -1,7 +1,7 @@
 #pragma hemtt ignore_variables ["_vehiclesCivCar","_vehiclesCivIndustrial","_vehiclesCivRepair","_vehiclesCivMedical","_vehiclesCivFuel","_vehiclesCivBoat","_vehiclesCivPlanes","_vehiclesCivHeli","_fnc_saveToTemplate"]
 
 // ! Skip adding to hashmap if the variable is not defined
-#define SKIP_NIL(VAR_NAME,VAR_DATA) if (!isNil VAR_DATA) then { [VAR_NAME, VAR_DATA] call _fnc_saveToTemplate };
+#define SKIP_NIL(VAR_NAME,VAR_DATA) if (!isNil {VAR_DATA}) then { [VAR_NAME, VAR_DATA] call _fnc_saveToTemplate };
 
 SKIP_NIL("vehiclesCivCar",_vehiclesCivCar)
 SKIP_NIL("vehiclesCivIndustrial",_vehiclesCivIndustrial)
