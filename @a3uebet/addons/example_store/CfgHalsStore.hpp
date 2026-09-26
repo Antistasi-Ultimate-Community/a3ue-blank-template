@@ -10,19 +10,19 @@
 class A3U {
     class traderAddons {
         class addons_base;
-        class addons_a3uebet: addons_base {
+        class ADDON: addons_base {
             // Addon dependency; don't load this store if "cTab" workshop item
             // isn't loaded.
             addons[] = {"cTab"};
-            // Reference to "weapons_a3uebet" defined below.
-            weapons = "weapons_a3uebet";
+            // Referenced below.
+            weapons = QUOTE(DOUBLES(weapons,ADDON));
         };
 
         class traderWeapons {
             class weapons_base;
             // Prefix is the item stock defined below.
-            class weapons_a3uebet: weapons_base {
-                prefix = "ctab_stock";
+            class DOUBLES(weapons,ADDON): weapons_base {
+                prefix = QUOTE(DOUBLES(ADDON,stock));
             };
         };
     };
@@ -88,7 +88,7 @@ class CfgHALsAddons {
              *   -> displayName = __EVAL(formatText["%1 %2", LLSTRING(Title), localize "STR_A3AU_misc"]);
              *   -> picture = "a3\ui_f\data\gui\Rsc\RscDisplayArsenal\backpack_ca.paa";
              */
-            class navigationCtab {
+            class DOUBLES(navigation,ADDON) {
                 displayName = __EVAL(formatText["%1 %2", LLSTRING(Title), localize "STR_A3AU_gps"]);
     			picture = "a3\ui_f\data\gui\Rsc\RscDisplayArsenal\backpack_ca.paa";
 
@@ -121,7 +121,7 @@ class CfgHALsAddons {
 
         class stores {
             // Class name is what you defined as a "prefix" above
-            class ctab_stock {
+            class DOUBLES(ADDON,stock) {
                 // This stays.
                 displayName = "$STR_ARMS_DEALER_STORE";
                 // List all stores you defined above. Since there's only one,
@@ -129,7 +129,7 @@ class CfgHALsAddons {
                 // hypothetical stores "launchersCtab" & "magazinesCtab"
                 // defined, they need to be listed here, too.
                 categories[] = {
-                    "navigationCtab"
+                    QUOTE(DOUBLES(navigation,ADDON))
                 };
             };
         };

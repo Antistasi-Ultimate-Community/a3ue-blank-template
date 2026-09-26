@@ -6,7 +6,8 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {QUOTE(MAIN_ADDON), "A3A_hals"};
+        requiredAddons[] = {QUOTE(MAIN_ADDON), "A3A_hals", "cTab"};
+        skipWhenMissingDependencies = 1;
         author = ECSTRING(main,Extender_Author);
         authors[] = {};
         authorUrl = ECSTRING(main,Extender_AuthorUrl);

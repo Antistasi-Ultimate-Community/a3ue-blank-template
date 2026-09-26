@@ -22,6 +22,9 @@ missing an example case we haven't considered, yet, use our [Discord][url-discor
 
 We aim to constantly increase examples for APIs we provide for extender authors.
 
+Each of these examles also contain a README.md that dives deeper in the
+particular subject.
+
 As of now, the "blank" template's mod exists of the following addons:
 
 ### Factions ###
