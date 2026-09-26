@@ -18,7 +18,7 @@ capability it doesn't already provide.
 The vehicle-save files use this macro:
 
 ```sqf
-#define SKIP_NIL(name, data) if (!isNil QUOTE(data)) then { [name, data] call _fnc_saveToTemplate }
+#define SKIP_NIL(VAR_NAME,VAR_DATA) if (!isNil {VAR_DATA}) then { [VAR_NAME, VAR_DATA] call _fnc_saveToTemplate };
 ```
 
 `isNil` checks whether the `private` variable was ever declared, not whether
