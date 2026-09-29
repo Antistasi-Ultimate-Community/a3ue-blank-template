@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="A3UEBET">
+    <Package name="Example_Base_Building">
+        <Key ID="STR_A3UEBET_Example_Base_Building_Title">
+            <English>[A3UEBET] Example Base Building</English>
+        </Key>
+    </Package>
+</Project>
