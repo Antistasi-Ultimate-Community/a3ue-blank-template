@@ -10,5 +10,11 @@
         <Key ID="STR_A3UEBET_Example_Faction_NameShort">
             <English>A3UEBET</English>
         </Key>
+        <Key ID="STR_A3UEBET_Example_Faction_CUP_ROC">
+            <Original>CUP ROCA</Original>
+        </Key>
+        <Key ID="STR_A3UEBET_Example_Faction_CUP_ROC_Description">
+            <Original>The Republic of China Army; colloquially the Taiwanese Army by western or mainland Chinese media, is the largest branch of Taiwan's military, the Republic of China Armed Forces. Since the Chinese Civil War, no armistice or peace treaty has ever been signed between the Republic of China regime and the communist regime, so as the final line of defense against a possible invasion by the People's Liberation Army (PLA), the primary focus of the ROCA is on defense and counterattack against amphibious assault and urban warfare.</Original>
+        </Key>
     </Package>
 </Project>
