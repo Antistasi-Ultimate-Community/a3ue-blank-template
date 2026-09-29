@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="A3UEBET">
     <Package name="Example_Base_Building">
-        <Key ID="STR_A3UEBET_Example_Base_Building_Title">
-            <English>[A3UEBET] Example Base Building</English>
+        <Key ID="STR_A3UEBET_Example_Base_Building_MyExampleBuilderBox1_Category0_DisplayName">
+            <English>Clutter</English>
+        </Key>
+        <Key ID="STR_A3UEBET_Example_Base_Building_MyExampleBuilderBox1_DisplayName">
+            <English>My Example Builder Box #1</English>
+        </Key>
+        <Key ID="STR_A3UEBET_Example_Base_Building_MyExampleBuilderBox2_DisplayName">
+            <English>My Example Builder Box #2</English>
         </Key>
     </Package>
 </Project>
