@@ -1,9 +1,9 @@
-# A3U extender blank example - A3A CBA event catalog
+# A3U extender blank example - A3U CBA event catalog
 
 Since all examples include A3U's header files, the event catalog header
 `cba_events.hpp` is also included.
 
-This header defines the event names used by the A3A framework through CBA-style
+This header defines the event names used by the A3U framework through CBA-style
 event handlers. Each macro is a string constant and is designed to be used with
 the [corresponding event functions](#functions).
 
