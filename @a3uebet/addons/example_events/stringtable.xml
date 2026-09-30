@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="A3UEBET">
-    <Package name="Example_Events">
-        <Key ID="STR_A3UEBET_Example_Events_Title">
-            <English>[A3UEBET] Example Events</English>
-        </Key>
-    </Package>
+    <Package name="Example_Events"></Package>
 </Project>
