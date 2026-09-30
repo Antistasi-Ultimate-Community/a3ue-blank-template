@@ -17,6 +17,9 @@ stricter parameter validation on top of them. They are:
 
 Please refer to the linked files' documentation for further information.
 
+> [!CAUTION]
+> To subscribe to events, game must be in post-init phase!
+
 Function                                                                | Description
 ------------------------------------------------------------------------|------------
 [`A3A_fnc_addEventHandler`][url-gh-unstable-func-addEventHandler]       | Subscribe to an event

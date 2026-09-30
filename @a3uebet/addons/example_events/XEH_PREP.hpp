@@ -1,0 +1,2 @@
+PREP(onClientInitDone);
+PREP(onServerInitDone);
