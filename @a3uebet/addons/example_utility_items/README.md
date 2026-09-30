@@ -26,7 +26,7 @@ class A3A {
         // Forward declare parent class
         class Base;
 
-        // Our item
+        // Our item (also the _exact_ class name as defined in `CfgVehicles`)
         class GVAR(MyItem): Base {
             // Make it available
             scope = 1;
