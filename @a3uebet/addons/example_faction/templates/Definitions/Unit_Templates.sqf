@@ -591,8 +591,8 @@ private _unitTypes = [
 ///////////////////////
 //  Military Units   //
 ///////////////////////
-private _prefix = "military";
-private _unitTypes = [
+_prefix = "military";
+_unitTypes = [
 	["SquadLeader", _squadLeaderTemplate, [], [_prefix]],
 	["Rifleman", _riflemanTemplate, [], [_prefix]],
 	["Radioman", _radiomanTemplate, [], [_prefix]],
@@ -615,8 +615,8 @@ private _unitTypes = [
 ////////////////////////
 //    Police Units    //
 ////////////////////////
-private _prefix = "police";
-private _unitTypes = [
+_prefix = "police";
+_unitTypes = [
 	["SquadLeader", _policeTemplate, [], [_prefix]],
 	["Standard", _policeTemplate, [], [_prefix]]
 ];
@@ -626,8 +626,8 @@ private _unitTypes = [
 ////////////////////////
 //    Militia Units    //
 ////////////////////////
-private _prefix = "militia";
-private _unitTypes = [
+_prefix = "militia";
+_unitTypes = [
 	["SquadLeader", _squadLeaderTemplate, [], [_prefix]],
 	["Rifleman", _riflemanTemplate, [], [_prefix]],
 	["Radioman", _radiomanTemplate, [], [_prefix]],
@@ -650,8 +650,8 @@ private _unitTypes = [
 ///////////////////////
 //  Elite Units   //
 ///////////////////////
-private _prefix = "elite";
-private _unitTypes = [
+_prefix = "elite";
+_unitTypes = [
 	["SquadLeader", _squadLeaderTemplate, [], [_prefix]],
 	["Rifleman", _riflemanTemplate, [], [_prefix]],
 	["Radioman", _radiomanTemplate, [], [_prefix]],

@@ -462,8 +462,8 @@ _eliteLoadoutData set ["goggles", ["Flex_CUP_ROC_Balaclava_Alt_Camo", "Flex_CUP_
 _eliteLoadoutData set ["glasses", ["Flex_CUP_ROC_Balaclava_Alt_Olive", "Flex_CUP_ROC_Balaclava_Alt_1_Olive"]];
 
 
-private _opticsClose = ["CUP_optic_MicroT1", 2, "CUP_optic_Eotech553_black", 1, "CUP_optic_VortexRazor_UH1_Black", 1, "", 1];
-private _opticsMid = ["CUP_optic_AIMM_MICROT1_BLK", 1, "CUP_optic_G33_HWS_BLK", 1, "CUP_optic_LeupoldMk4_CQ_T", 1, "CUP_optic_SB_11_4x20_PM", 1, "CUP_optic_ACOG", 1];
+_opticsClose = ["CUP_optic_MicroT1", 2, "CUP_optic_Eotech553_black", 1, "CUP_optic_VortexRazor_UH1_Black", 1, "", 1];
+_opticsMid = ["CUP_optic_AIMM_MICROT1_BLK", 1, "CUP_optic_G33_HWS_BLK", 1, "CUP_optic_LeupoldMk4_CQ_T", 1, "CUP_optic_SB_11_4x20_PM", 1, "CUP_optic_ACOG", 1];
 private _opticsMG = ["CUP_optic_ACOG_TA648_308_RDS_black", 2, "CUP_optic_ElcanM145", 2, "CUP_optic_CWS", 1];
 private _accRifle = ["CUP_acc_Flashlight", 2, "CUP_acc_ANPEQ_15_Black", 1, "CUP_acc_ANPEQ_15_Flashlight_Black_L", 1, "", 1];
 private _accT91 = ["acc_flashlight", 3, "acc_pointer_IR", 1, "", 1];
@@ -551,11 +551,11 @@ _sfLoadoutData set ["helmets", [
 _sfLoadoutData set ["slHat", ["CUP_H_OpsCore_Covered_MCAM_SF"]];
 _sfLoadoutData set ["NVGs", ["CUP_NVG_GPNVG_black_WP"]];
 
-private _opticsClose = ["CUP_optic_MicroT1", 2, "CUP_optic_Eotech553_black", 1, "CUP_optic_VortexRazor_UH1_Black", 1, "CUP_optic_AIMM_MICROT1_BLK", 1, "CUP_optic_G33_HWS_BLK", 1];
-private _opticsMid = ["CUP_optic_SB_11_4x20_PM", 1, "CUP_optic_ACOG", 1, "CUP_optic_Elcan_reflex", 1];
-private _opticsMG = ["CUP_optic_ACOG_TA648_308_RDS_black", 2, "CUP_optic_ElcanM145", 2, "CUP_optic_CWS", 1];
-private _accRifle = ["CUP_acc_ANPEQ_15_Black", 1, "CUP_acc_ANPEQ_15_Flashlight_Black_L", 2];
-private _accT91 = ["acc_flashlight", 1, "acc_pointer_IR", 2];
+_opticsClose = ["CUP_optic_MicroT1", 2, "CUP_optic_Eotech553_black", 1, "CUP_optic_VortexRazor_UH1_Black", 1, "CUP_optic_AIMM_MICROT1_BLK", 1, "CUP_optic_G33_HWS_BLK", 1];
+_opticsMid = ["CUP_optic_SB_11_4x20_PM", 1, "CUP_optic_ACOG", 1, "CUP_optic_Elcan_reflex", 1];
+_opticsMG = ["CUP_optic_ACOG_TA648_308_RDS_black", 2, "CUP_optic_ElcanM145", 2, "CUP_optic_CWS", 1];
+_accRifle = ["CUP_acc_ANPEQ_15_Black", 1, "CUP_acc_ANPEQ_15_Flashlight_Black_L", 2];
+_accT91 = ["acc_flashlight", 1, "acc_pointer_IR", 2];
 
 _sfLoadoutData set ["sidearms", [
     ["CUP_hgun_M9A1", "CUP_muzzle_snds_M9", ["CUP_acc_Glock17_Flashlight", 1, "CUP_acc_CZ_M3X", 2], "", [], [], ""], 1,
