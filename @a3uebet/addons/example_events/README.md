@@ -123,6 +123,16 @@ For a full documentation, refer to the
     Parameters: [marker, controlType].
     Scope: server -> server.
 
+#### `CBA_EVENT_SERVER_GAME_LOAD` ![available since version 12.1.0][url-version-badge-since-12.1.0]
+    Triggered when the game is loaded on the server.
+    Parameters: [saveData]
+    Scope: server -> server.
+
+#### `CBA_EVENT_SERVER_GAME_SAVE` ![available since version 12.1.0][url-version-badge-since-12.1.0]
+    Triggered when the game is saved on the server.
+    Parameters: [saveData]
+    Scope: server -> server.
+
 #### `CBA_EVENT_SERVER_ENTITY_POSTMORTEM` ![available since version 12.0.4][url-version-badge-since-12.0.4]
     Triggered when an entity dies.
     Parameters: [entity, killer?].
@@ -167,6 +177,11 @@ For a full documentation, refer to the
     Triggered when a location spawns or despawns.
     Parameters: [location, locationType, isSpawning].
     Scope: server -> server.
+
+#### `CBA_EVENT_SERVER_STARTUP` ![available since version 12.1.0][url-version-badge-since-12.1.0]
+    Triggered very early in `fn_initServer.sqf` when the server starts up.
+    Parameters: none
+    Scope: server -> server
 
 [url-version-badge-since-12.0.4]: https://img.shields.io/badge/since-12.0.4-blue
 [url-version-badge-since-12.1.0]: https://img.shields.io/badge/since-12.1.0-orange
