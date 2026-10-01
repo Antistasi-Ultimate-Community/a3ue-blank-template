@@ -71,99 +71,102 @@ For a full documentation, refer to the
 
 ### Client events
 
-#### `CBA_EVENT_CLIENT_BUILDER_ABORT`
+#### `CBA_EVENT_CLIENT_BUILDER_ABORT` ![available since version 12.0.4][url-version-badge-since-12.0.4]
     Triggered when a player aborts builder mode.
     Parameters: none.
     Scope: client -> client.
 
-#### `CBA_EVENT_CLIENT_BUILDER_START`
+#### `CBA_EVENT_CLIENT_BUILDER_START` ![available since version 12.0.4][url-version-badge-since-12.0.4]
     Triggered when a player starts builder mode.
     Parameters: [builderPos, builderRadius].
     Scope: client -> client.
 
-#### `CBA_EVENT_CLIENT_HQ_PLACED`
+#### `CBA_EVENT_CLIENT_HQ_PLACED` ![available since version 12.0.4][url-version-badge-since-12.0.4]
     Triggered when moving the HQ is complete.
     Parameters: [position, player].
     Scope: client -> all machines including sender.
 
-#### `CBA_EVENT_CLIENT_INIT_DONE`
+#### `CBA_EVENT_CLIENT_INIT_DONE` ![available since version 12.0.4][url-version-badge-since-12.0.4]
     Triggered after client initialization is complete.
     Parameters: none.
     Scope: client -> client.
 
-#### `CBA_EVENT_CLIENT_PLAYER_LOAD`
+#### `CBA_EVENT_CLIENT_PLAYER_LOAD` ![available since version 12.0.4][url-version-badge-since-12.0.4]
     Triggered when the server loads a player's custom save data.
     Parameters: [saveData].
     Scope: server -> client.
 
-#### `CBA_EVENT_CLIENT_PLAYER_SAVE`
+#### `CBA_EVENT_CLIENT_PLAYER_SAVE` ![available since version 12.0.4][url-version-badge-since-12.0.4]
     Triggered when the server prepares custom player save data.
     Parameters: [saveData].
     Scope: server -> client.
 
-#### `CBA_EVENT_CLIENT_TEARDOWN_MODE_CHANGED`
+#### `CBA_EVENT_CLIENT_TEARDOWN_MODE_CHANGED` ![available since version 12.0.4][url-version-badge-since-12.0.4]
     Triggered when the client changes teardown mode.
     Parameters: [player, isInTeardownMode].
     Scope: client -> client.
 
-#### `CBA_EVENT_CLIENT_UNDERCOVER_CHANGED`
+#### `CBA_EVENT_CLIENT_UNDERCOVER_CHANGED` ![available since version 12.0.4][url-version-badge-since-12.0.4]
     Triggered when the player's undercover state changes.
     Parameters: [undercoverStatus, undercoverBrokenReason?].
     Scope: client -> client.
 
-#### `CBA_EVENT_CLIENT_VEHICLE_BOX_RESTORE`
+#### `CBA_EVENT_CLIENT_VEHICLE_BOX_RESTORE` ![available since version 12.0.4][url-version-badge-since-12.0.4]
     Triggered when a client restores nearby vehicles from the vehicle box.
     Parameters: [position].
     Scope: client -> client.
 
 ### Server events
 
-#### `CBA_EVENT_SERVER_CREATE_REBEL_CONTROL`
+#### `CBA_EVENT_SERVER_CREATE_REBEL_CONTROL` ![available since version 12.0.4][url-version-badge-since-12.0.4]
     Triggered when a rebel control is established.
     Parameters: [marker, controlType].
     Scope: server -> server.
 
-#### `CBA_EVENT_SERVER_ENTITY_POSTMORTEM`
+#### `CBA_EVENT_SERVER_ENTITY_POSTMORTEM` ![available since version 12.0.4][url-version-badge-since-12.0.4]
     Triggered when an entity dies.
     Parameters: [entity, killer?].
     Scope: server -> server.
 
-#### `CBA_EVENT_SERVER_INIT_AI_UNIT`
+#### `CBA_EVENT_SERVER_INIT_AI_UNIT` ![available since version 12.0.4][url-version-badge-since-12.0.4]
     Triggered when an AI unit is initialized.
     Parameters: [unit, side, marker, isSpawner].
     Scope: server -> server.
 
-#### `CBA_EVENT_SERVER_INIT_AI_VEHICLE`
+#### `CBA_EVENT_SERVER_INIT_AI_VEHICLE` ![available since version 12.0.4][url-version-badge-since-12.0.4]
     Triggered when an AI vehicle is initialized.
     Parameters: [vehicle, side].
     Scope: server -> server.
 
-#### `CBA_EVENT_SERVER_INIT_CIVILIAN_UNIT`
+#### `CBA_EVENT_SERVER_INIT_CIVILIAN_UNIT` ![available since version 12.0.4][url-version-badge-since-12.0.4]
     Triggered when a civilian unit is initialized.
     Parameters: [unit].
     Scope: server -> server.
 
-#### `CBA_EVENT_SERVER_INIT_CIVILIAN_VEHICLE`
+#### `CBA_EVENT_SERVER_INIT_CIVILIAN_VEHICLE` ![available since version 12.0.4][url-version-badge-since-12.0.4]
     Triggered when a civilian vehicle is initialized.
     Parameters: [vehicle].
     Scope: server -> server.
 
-#### `CBA_EVENT_SERVER_INIT_DONE`
+#### `CBA_EVENT_SERVER_INIT_DONE` ![available since version 12.0.4][url-version-badge-since-12.0.4]
     Triggered after preliminary server setup completes.
     Parameters: none.
     Scope: server -> server.
 
-#### `CBA_EVENT_SERVER_MARKER_CHANGE`
+#### `CBA_EVENT_SERVER_MARKER_CHANGE` ![available since version 12.0.4][url-version-badge-since-12.0.4]
     Triggered when a marker changes ownership.
     Parameters: [marker, winner, loser].
     Scope: server -> server.
 
-#### `CBA_EVENT_SERVER_PLAYER_SAVE`
+#### `CBA_EVENT_SERVER_PLAYER_SAVE` ![available since version 12.0.4][url-version-badge-since-12.0.4]
     Triggered when the server saves player data.
     Parameters: [uuid].
     Scope: server -> client.
 
-#### `CBA_EVENT_SERVER_SPAWN_LOCATION`
+#### `CBA_EVENT_SERVER_SPAWN_LOCATION` ![available since version 12.0.4][url-version-badge-since-12.0.4]
     Triggered when a location spawns or despawns.
     Parameters: [location, locationType, isSpawning].
     Scope: server -> server.
+
+[url-version-badge-since-12.0.4]: https://img.shields.io/badge/since-12.0.4-blue
+[url-version-badge-since-12.1.0]: https://img.shields.io/badge/since-12.1.0-orange
