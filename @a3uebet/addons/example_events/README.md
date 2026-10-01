@@ -159,6 +159,8 @@ For a full documentation, refer to the
     Scope: server -> server.
 
 #### `CBA_EVENT_SERVER_INIT_DONE` ![available since version 12.0.4][url-version-badge-since-12.0.4]
+Runs _scheduled_ **_after_** [`CBA_EVENT_SERVER_STARTUP`](#cba_event_server_startup-).
+
     Triggered after preliminary server setup completes.
     Parameters: none.
     Scope: server -> server.
